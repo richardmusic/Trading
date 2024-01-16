@@ -3,7 +3,7 @@
   /* body {background-color: var(--background-light); color: var(--text-color-light); } */
   /* @media (prefers-color-scheme: dark) {body {background-color: var(--background-dark); color: var(--text-color-dark); }} */
 
-  body {
+  body {zoom: 95%;
     /* background: rgb(255,213,255);
     background: linear-gradient(194deg, rgba(255,213,255,0.24708153735632188) 4%, rgba(255,255,255,1) 13%, rgba(255,255,255,1) 34%, rgba(34,255,160,0.1292654454022989) 65%); */
   } 
@@ -175,3 +175,5 @@ h2{opacity:0.5;}
   filter: blur(50px); 
   animation: moveUpDownRedCircle4 3s ease-in-out infinite; /* Apply animation with different rotation */
 }
+
+.checkbox-label{opacity: 60%;}  
