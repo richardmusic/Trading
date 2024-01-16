@@ -25,8 +25,8 @@ export const placementConfig = {
   'Think London was a Reversal': ['rightMiddle', '', ''],                                           /*  Line 24 */
   'Think NY is a continuation': ['rightMiddle', '', 'rightMiddle'],                                  /*  Line 25 */
   'Think NY is a Reversal': ['rightMiddle', '', ''],                                                 /*  Line 26 */
-  '🔻Weekly Profile ......': ['rightBottom', '', ''],                    /*  Line 27 */
-  '✅Weekly Profile .......': ['rightBottom', 'rightTop', 'rightMiddle'],                           /*  Line 28 */
+  'Weekly Prof 🔻......': ['rightBottom', '', ''],                    /*  Line 27 */
+  'Weekly Prof ✅.......': ['rightBottom', 'rightTop', 'rightMiddle'],                           /*  Line 28 */
   'Potential Daily Patterns......': ['rightMiddle', 'rightMiddle', 'rightMiddle'],                        /*  Line 29 */
   'Monthly Bias/Direction/Targets': ['rightBottom', 'rightTop', 'rightMiddle'],                      /*  Line 30 */
   'Weekly Bias/Direction/Targets': ['rightBottom', 'rightTop', 'rightMiddle'],                      /*  Line 31 */
