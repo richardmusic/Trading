@@ -28,8 +28,8 @@ export default function CheckboxGroup() { const [selectedCheckboxes, setSelected
     'Think London was a Reversal': [false, false, false],                                 /*  Line 24 */
     'Think NY is a continuation': [false, false, false],                                 /*  Line 25 */
     'Think NY is a Reversal': [false, false, false],                                     /*  Line 26 */
-    'Weekly Prof 🔻 ......': [false, false, false, false, false, false],                                  /*  Line 27 */
-    'Weekly Prof ✅ .......': [false, false, false, false, false, false],                                  /*  Line 28 */
+    'Weekly Prof 🔻......': [false, false, false, false, false, false],                                  /*  Line 27 */
+    'Weekly Prof ✅.......': [false, false, false, false, false, false],                                  /*  Line 28 */
     'Potential Daily Patterns......': [false, false, false, false, false, false],                             /*  Line 29 */
     'Monthly Bias/Direction/Targets': [false, false, false],                             /*  Line 30 */
     'Weekly Bias/Direction/Targets': [false, false, false],                              /*  Line 31 */
