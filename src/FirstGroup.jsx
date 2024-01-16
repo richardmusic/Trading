@@ -1,53 +1,53 @@
 import React, { useState, useEffect, useRef } from 'react'; import './CheckboxGroup.css'; import { lines } from './linesArray.js';
 import { placementConfig } from './placementConfig.js';  import { checkBoxAnswers } from './checkBoxAnswers.js';
-// import TradingViewWidget from './Heatmap.jsx';
+import { toolTips } from './toolTips.js';
 export default function CheckboxGroup() { const [selectedCheckboxes, setSelectedCheckboxes] = useState(
   {
-    'Flat Highs/Lows, after a Stop run (15m)': [false, false, false],      /*  Line 1 */ 
-    'Judas Swing Happened Liquidity Swept': [false, false, false],    /*  Line 2 */ 
-    'Now Power Hour': [false, false, false],      /*  Line 3 */ 
-    'MTW thurs necessary -T usually H/L of week': [false, false, false],    /*  Line 4 */ 
-    'ES/NQ Moving Together / Mixed Day': [false, false, false],      /*  Line 5 */ 
-    'VWAP': [false, false, false],    /*  Line 6 */ 
-    'Buy/Sellside objectives taken before NY open': [false, false, false],      /*  Line 7 */ 
-    'London swept Asia high/low': [false, false, false],    /*  Line 8 */ 
-    'NY Opened within yesterday Day Candle': [false, false, false],      /*  Line 9 */ 
-    'Yesterday a Large Range Day': [false, false, false],    /*  Line 10 */ 
-    'Consecutive Days Trending - over 1% SP500': [false, false, false],      /*  Line 11 */ 
-    'Consecutive Days Ranging - >.50%': [false, false, false],    /*  Line 12 */ 
-    'Medium/Higher Impact Economic Calendar Event': [false, false, false],      /*  Line 13 */ 
-    'Seasonal Tendency': [false, false, false],    /*  Line 14 */ 
-    'ES Looking More...': [false, false, false],      /*  Line 15 */ 
-    'NQ Looking More...': [false, false, false],    /*  Line 16 */ 
-    'Have a Daily Bias': [false, false, false],      /*  Line 17 */ 
-    'Weekly Candle Bodies small/compressed(ignore wicks-Big days after small': [false, false, false],      /*  Line 18 */ 
-    'Did Accumulation / Ranging Happen': [false, false, false],        /*  Line 19 */ 
-    'Discords Opinion': [false, false, false],      /*  Line 20 */ 
-    'Topstep People Opinion': [false, false, false],      /*  Line 21 */ 
-    'TopTech Direction': [false, false, false],     /*  Line 22 */ 
-    'Think London is the Low/High of the Day': [false, false, false],      /*  Line 23 */ 
-    'Think London was a Reversal': [false, false, false],      /*  Line 24 */ 
-    'Think NY is a continuation': [false, false, false],     /*  Line 25 */ 
-    'Think NY is a Reversal': [false, false, false],       /*  Line 26 */ 
-    'If Bullish,at Premium has it gone down for entering': [false, false, false],       /*  Line 27 */ 
-    'Potential Daily Patterns': [false, false, false],      /*  Line 28 */ 
-    'Potential Weekly Patterns': [false, false, false],       /*  Line 29 */ 
-    'Monthly Bias/Direction/Targets': [false, false, false],       /*  Line 30 */ 
-    'Weekly Bias/Direction/Targets': [false, false, false],      /*  Line 31 */ 
-    'Daily Bias/Direction/Targets': [false, false, false],       /*  Line 32 */ 
-    '4H Bias/Direction/Targets': [false, false, false],       /*  Line 33 */ 
-    'SMT Divergence Intraday/Daily': [false, false, false],      /*  Line 34 */ 
-    'Xray Levels- IFVG/Break Blocks/Order Blocks etc': [false, false, false],       /*  Line 35 */ 
-    'Consecutive Weeks Trending': [false, false, false],      /*  Line 36 */ 
-    'Consecutive Weekly Wicks': [false, false, false],      /*  Line 36 */ 
-    'Manipulating Now Accumulating Trending': [false, false, false],      /*  Line 38 */ 
-    'Multiple NWOGs crowding same area': [false, false, false],      /*  Line 39 */ 
-    'Large range overnight-avoid AM, only PM': [false, false, false],      /*  Line 40 */ 
-    'Bank Holiday/the Day after/Half Day': [false, false, false],      /*  Line 41 */ 
-    'How High is ES target from bottom': [false, false, false],      /*  Line 42 */ 
-    'How High is ES target from VWAP': [false, false, false],      /*  Line 43 */ 
-    'How High % to total Daily target': [false, false, false],   /*  Line 44 */ 
-    'First/Last few days of month': [false, false, false],   /*  Line 45 */ });
+    'Flat Highs/Lows, after a Stop run (15m)......': [false, false, false],                  /*  Line 1  */
+    'Judas Swing Happened Liquidity Swept': [false, false, false],                    /*  Line 2  */
+    'Now Power Hour': [false, false, false],                                          /*  Line 3  */
+    'MTW thurs necessary......': [false, false, false],              /*  Line 4  */
+    'ES/NQ Moving Together': [false, false, false],                        /*  Line 5  */
+    'VWAP': [false, false, false],                                                     /*  Line 6  */
+    'Buy/Sellside objectives taken before NY open......': [false, false, false],            /*  Line 7  */
+    'London swept Asia high/low......': [false, false, false],                               /*  Line 8  */
+    'NY Opened within yesterday Day Candle......': [false, false, false],                    /*  Line 9  */
+    'Yesterday a Large Range Day......': [false, false, false],                               /*  Line 10 */
+    'Consecutive Days Trending - over 1% SP500': [false, false, false],                /*  Line 11 */
+    'Consecutive Days Ranging - >.50%': [false, false, false],                          /*  Line 12 */
+    'Medium/Higher Impact Economic Calendar Event': [false, false, false],              /*  Line 13 */
+    'Seasonal Tendency......': [false, false, false],                                         /*  Line 14 */
+    'ES Looking More......': [false, false, false],                                        /*  Line 15 */
+    'NQ Looking More......': [false, false, false],                                        /*  Line 16 */
+    'Have a Daily Bias': [false, false, false],                                         /*  Line 17 */
+    'Weekly Candle Bodies small, compressed......': [false, false, false],           /* Line 18 */
+    'Did Accumulation / Ranging Happen': [false, false, false],                         /*  Line 19 */
+    'Discords Opinion': [false, false, false],                                          /*  Line 20 */
+    'Topstep People Opinion': [false, false, false],                                     /*  Line 21 */
+    'TopTech Direction': [false, false, false],                                          /*  Line 22 */
+    'Think London is the Low/High of the Day': [false, false, false],                   /*  Line 23 */
+    'Think London was a Reversal': [false, false, false],                                 /*  Line 24 */
+    'Think NY is a continuation': [false, false, false],                                 /*  Line 25 */
+    'Think NY is a Reversal': [false, false, false],                                     /*  Line 26 */
+    'If Bullish, at Premium or Discount......': [false, false, false],                 /*  Line 27 */
+    'Potential Daily Patterns......': [false, false, false],                                   /*  Line 28 */
+    'Potential Weekly Patterns': [false, false, false],                                  /*  Line 29 */
+    'Monthly Bias/Direction/Targets': [false, false, false],                             /*  Line 30 */
+    'Weekly Bias/Direction/Targets': [false, false, false],                              /*  Line 31 */
+    'Daily Bias/Direction/Targets': [false, false, false],                               /*  Line 32 */
+    '4H Bias/Direction/Targets': [false, false, false],                                  /*  Line 33 */
+    'SMT Divergence Intraday/Daily': [false, false, false],                              /*  Line 34 */
+    'Xray Levels- IFVG/Break Blocks/Order Blocks etc': [false, false, false],            /*  Line 35 */
+    'Consecutive Weeks Trending': [false, false, false],                                 /*  Line 36 */
+    'Consecutive Weekly Wicks': [false, false, false],                                   /*  Line 37 */
+    'Manipulating Accumulating Trending': [false, false, false],                      /*  Line 38 */
+    'Multiple NWOGs crowding same area': [false, false, false],                            /*  Line 39 */
+    'Large range overnight-avoid AM, only PM......': [false, false, false],                      /*  Line 40 */
+    'Bank Holiday/the Day after/Half Day': [false, false, false],                         /*  Line 41 */
+    'How High is ES target from bottom': [false, false, false],                           /*  Line 42 */
+    'How High is ES target from VWAP': [false, false, false],                              /*  Line 43 */
+    'How High % to total Daily target': [false, false, false],                              /*  Line 44 */
+    'First/Last few days of month': [false, false, false],                                  /*  Line 45 */     });
 const resetButtonRef = useRef(null); 
 const [selectedNamesTopRight, setSelectedNamesTopRight]=useState([]); 
 const [selectedNamesRightMiddle, setSelectedNamesRightMiddle] = useState([]);
@@ -79,18 +79,58 @@ useEffect(() => {const topRightNames = []; const bottomRightNames = []; const ri
 
 useEffect(() => {document.getElementById(lines[0]).focus();}, []);
 const handleReset = () => {const resetCheckboxes = {}; lines.forEach((line) => {resetCheckboxes[line] = [false, false, false];}); setSelectedCheckboxes(resetCheckboxes);};
+
+const handleTooltipMouseMove = (e) => {
+  const tooltipIndex = e.currentTarget.getAttribute('data-tooltip');
+  const tooltipText = toolTips[tooltipIndex];
+  console.log('Tooltip Index:', tooltipIndex);
+  console.log('Tooltip Text:', tooltipText);
+};
+
+useEffect(() => {
+  const checkboxLines = document.querySelectorAll('.checkbox-line[data-tooltip]');
+  checkboxLines.forEach((line) => {
+    line.addEventListener('mousemove', handleTooltipMouseMove);
+
+    return () => {
+      line.removeEventListener('mousemove', handleTooltipMouseMove);
+    };
+  });
+}, []);
+
 return (<div>
-{/* <TradingViewWidget/> */}
-<div className="topSide"><button onClick={handleReset} ref={resetButtonRef} className="resetButton">Reset</button></div>
+<div className="topSide">
+  <button onClick={handleReset} ref={resetButtonRef} className="resetButton">Reset</button>
+</div>
 <div className="container">
   <div className="leftSide">
     {lines.map((line, index) => (
-      <div key={line} id={line} className="checkbox-line" onKeyDown={(e)=>handleKeyDown(e, index)} tabIndex="0"><div className="checkboxes">
+      <div key={line} id={line} className="checkbox-line" onKeyDown={(e) => handleKeyDown(e, index)} tabIndex="0" data-tooltip={index}>
+        <div className="checkboxes">
           {selectedCheckboxes[line].map((isChecked, checkboxIndex) => (
             <label key={checkboxIndex} className="checkbox-label">
-              <input type="checkbox" checked={isChecked} onChange={()=> handleCheckboxChange(line, checkboxIndex)}/>
-              <span>{checkBoxAnswers[index][checkboxIndex]}</span></label>))}</div>
-        <div className="lineTitle"><p>{line}</p></div></div>))}</div>
+              <input type="checkbox" checked={isChecked} onChange={() => handleCheckboxChange(line, checkboxIndex)} />
+              <span>{checkBoxAnswers[index][checkboxIndex]}</span>
+            </label>
+          ))}
+        </div>
+        <div className="lineTitle">
+          <p>{line}</p>
+        </div>
+        <div className="tooltip">
+  {Array.isArray(toolTips[index]) ? (
+    toolTips[index].map((image, imgIndex) => (
+      <img key={imgIndex} src={image} alt={`Tooltip ${imgIndex}`} />
+    ))
+  ) : (
+    <span>{toolTips[index]}</span>
+  )}
+</div>
+      </div>
+    ))}
+  </div>
+  
+
   
   <div className="rightSide">
     <div className="rightTop"><h2>Bearish</h2>
@@ -100,25 +140,12 @@ return (<div>
         <ul className="no-bullets-middle">{selectedNamesRightMiddle.map((name, index)=>(<li key={index}>{name}</li>))}</ul></div>
         
     <div className="rightBottom"><h2>Bullish</h2>
-        <ul className="no-bullets-bottom">{selectedNamesBottomRight.map((name, index)=>(<li key={index}>{name}</li>))}</ul></div></div></div></div>);}
+        <ul className="no-bullets-bottom">{selectedNamesBottomRight.map((name, index)=>(<li key={index}>{name}</li>))}</ul></div>
 
+      <div className="redCircle"></div>
+      <div className="redCircle2"></div>
+      <div className="redCircle3"></div>
+      <div className="redCircle4"></div>
 
-
-
-
-
-
-
-// {lines.map((line, index) => (
-//   <div key={line} id={line} className="checkbox-line" onKeyDown={(e) => handleKeyDown(e, index)} tabIndex="0">
-//     <div className="checkboxes">
-//       {selectedCheckboxes[line].map((isChecked, checkboxIndex) => (
-//         <label key={checkboxIndex}>
-//           <input type="checkbox" checked={isChecked} onChange={() => handleCheckboxChange(line, checkboxIndex)}/>
-//           <span>{checkBoxAnswers[index][checkboxIndex]}</span>
-//         </label>))}
-//     </div>
-//     <div className="fruit-checkbox">
-//       <p>{line.charAt(0).toUpperCase() + line.slice(1)}</p>
-//     </div>
-//   </div>))}
+        
+        </div></div></div>);}
