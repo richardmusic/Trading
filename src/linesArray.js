@@ -25,8 +25,8 @@ export const lines = [
   'Think London was a Reversal',                                       /*  Line 24 */ 
   'Think NY is a continuation',                                        /*  Line 25 */ 
   'Think NY is a Reversal',                                            /*  Line 26 */ 
-  'Weekly Prof 🔻 ......',                                            /*  Line 27 */ 
-  'Weekly Prof ✅ .......',                                             /*  Line 28 */ 
+  'Weekly Prof 🔻......',                                            /*  Line 27 */ 
+  'Weekly Prof ✅.......',                                             /*  Line 28 */ 
   'Potential Daily Patterns......',                                      /*  Line 29 */ 
   'Monthly Bias/Direction/Targets',                                     /*  Line 30 */ 
   'Weekly Bias/Direction/Targets',                                      /*  Line 31 */ 
