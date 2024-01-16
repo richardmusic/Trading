@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react'; import './CheckboxGroup.css'; import { lines } from './linesArray.js';
-import { placementConfig } from './placementConfig.js';  import { checkBoxAnswers } from './checkBoxAnswers.js';
-import { toolTips } from './toolTips.js';
+import { placementConfig } from './placementConfig.js';  import { checkBoxAnswers } from './checkBoxAnswers.js'; import { toolTips } from './toolTips.js';
 export default function CheckboxGroup() { const [selectedCheckboxes, setSelectedCheckboxes] = useState(
   {
     'Flat Highs/Lows, after a Stop run (15m)......': [false, false, false],                  /*  Line 1  */
@@ -48,10 +47,8 @@ export default function CheckboxGroup() { const [selectedCheckboxes, setSelected
     'How High is ES target from VWAP': [false, false, false],                              /*  Line 43 */
     'How High % to total Daily target': [false, false, false],                              /*  Line 44 */
     'First/Last few days of month': [false, false, false],                                  /*  Line 45 */     });
-const resetButtonRef = useRef(null); 
-const [selectedNamesTopRight, setSelectedNamesTopRight]=useState([]); 
-const [selectedNamesRightMiddle, setSelectedNamesRightMiddle] = useState([]);
-const [selectedNamesBottomRight, setSelectedNamesBottomRight]=useState([]);
+const resetButtonRef = useRef(null); const [selectedNamesTopRight, setSelectedNamesTopRight] = useState([]); 
+const [selectedNamesRightMiddle, setSelectedNamesRightMiddle] = useState([]); const [selectedNamesBottomRight, setSelectedNamesBottomRight]=useState([]);
 const handleKeyDown = (e, index) => {if (e.key === 'Tab') {e.preventDefault();
       if (e.shiftKey) {const previousIndex = (index - 1 + lines.length) % lines.length; document.getElementById(lines[previousIndex]).focus();
       } else {const nextIndex = (index + 1) % lines.length; document.getElementById(lines[nextIndex]).focus();}
@@ -76,27 +73,14 @@ useEffect(() => {const topRightNames = []; const bottomRightNames = []; const ri
           } else if (placement === 'rightBottom') {bottomRightNames.push(line);}}});});
   setSelectedNamesTopRight(topRightNames); setSelectedNamesRightMiddle(rightMiddleNames); setSelectedNamesBottomRight(bottomRightNames);
   }, [selectedCheckboxes]);
-
 useEffect(() => {document.getElementById(lines[0]).focus();}, []);
+useEffect(() => { const checkboxLines = document.querySelectorAll('.checkbox-line[data-tooltip]');
+    checkboxLines.forEach((line) => { line.addEventListener('mousemove', handleTooltipMouseMove);
+    return () => {line.removeEventListener('mousemove', handleTooltipMouseMove);};});}, []);
+
+const handleTooltipMouseMove = (e) => {const tooltipIndex = e.currentTarget.getAttribute('data-tooltip'); const tooltipText = toolTips[tooltipIndex];
+  console.log('Tooltip Index:', tooltipIndex); console.log('Tooltip Text:', tooltipText);};
 const handleReset = () => {const resetCheckboxes = {}; lines.forEach((line) => {resetCheckboxes[line] = [false, false, false];}); setSelectedCheckboxes(resetCheckboxes);};
-
-const handleTooltipMouseMove = (e) => {
-  const tooltipIndex = e.currentTarget.getAttribute('data-tooltip');
-  const tooltipText = toolTips[tooltipIndex];
-  console.log('Tooltip Index:', tooltipIndex);
-  console.log('Tooltip Text:', tooltipText);
-};
-
-useEffect(() => {
-  const checkboxLines = document.querySelectorAll('.checkbox-line[data-tooltip]');
-  checkboxLines.forEach((line) => {
-    line.addEventListener('mousemove', handleTooltipMouseMove);
-
-    return () => {
-      line.removeEventListener('mousemove', handleTooltipMouseMove);
-    };
-  });
-}, []);
 
 return (<div>
 <div className="topSide">
@@ -110,27 +94,12 @@ return (<div>
           {selectedCheckboxes[line].map((isChecked, checkboxIndex) => (
             <label key={checkboxIndex} className="checkbox-label">
               <input type="checkbox" checked={isChecked} onChange={() => handleCheckboxChange(line, checkboxIndex)} />
-              <span>{checkBoxAnswers[index][checkboxIndex]}</span>
-            </label>
-          ))}
-        </div>
-        <div className="lineTitle">
-          <p>{line}</p>
-        </div>
-        <div className="tooltip">
-  {Array.isArray(toolTips[index]) ? (
-    toolTips[index].map((image, imgIndex) => (
-      <img key={imgIndex} src={image} alt={`Tooltip ${imgIndex}`} />
-    ))
-  ) : (
-    <span>{toolTips[index]}</span>
-  )}
-</div>
-      </div>
-    ))}
-  </div>
-  
-
+              <span >{checkBoxAnswers[index][checkboxIndex]}</span></label>))}</div>
+        <div className="lineTitle"><p>{line}</p></div>
+<div className="tooltip">
+    {Array.isArray(toolTips[index]) ? (toolTips[index].map((content, contentIndex) => (
+          <img key={contentIndex} src={content} alt={`tooltip-${contentIndex}`} />))
+      ) : (<span>{toolTips[index]}</span>)}</div></div>))}</div>
   
   <div className="rightSide">
     <div className="rightTop"><h2>Bearish</h2>
@@ -142,10 +111,8 @@ return (<div>
     <div className="rightBottom"><h2>Bullish</h2>
         <ul className="no-bullets-bottom">{selectedNamesBottomRight.map((name, index)=>(<li key={index}>{name}</li>))}</ul></div>
 
-      <div className="redCircle"></div>
-      <div className="redCircle2"></div>
-      <div className="redCircle3"></div>
-      <div className="redCircle4"></div>
+      <div className="redCircle"></div><div className="redCircle2"></div>
+      <div className="redCircle3"></div><div className="redCircle4"></div>
 
         
         </div></div></div>);}
